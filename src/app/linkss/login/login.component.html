@@ -1,0 +1,21 @@
+<!-- Меню авторизации -->
+<div class="container">
+    <div class="row">
+      <h2 class="fw">Авторизация</h2>
+        <p class="text">Пожалуйста введите ваш Логин и Пароль!</p>
+            <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+                <div class="form_outlin">
+                  <input formControlName="login" type="text" id="typeLoginX" class="form_control form-control-lg" name="name" ngModel required/>
+                  <label class="form_label" for="typeLoginX">Логин</label>
+                  <p *ngIf="this.loginForm.get('login')?.invalid && this.loginForm.get('login')?.touched"><small class="text_danger">Логин обязательно!</small></p>
+                </div>
+  
+                <div class="form_outline">
+                  <input formControlName="password" type="password" id="typePasswordX" class="form_control form-control-lg"/>
+                  <label class="form_label" for="typePasswordX">Пароль</label>
+                  <p *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched"><small class="text_danger">Пароль обязательно! (мин. кол-во символов = 8)</small></p>
+                </div>
+            <button [disabled]="loginForm.invalid"  class="btn" type="submit">Авторизация</button>
+          </form>  
+    </div>
+  </div>
